@@ -1,0 +1,4 @@
+interface:
+  display_name: "Project Learning Log"
+  short_description: "Generate project learning notes from chat and code."
+  default_prompt: "Generate a Markdown learning log for the current project, including goals, changes, key code, validation, and follow-up practice."
