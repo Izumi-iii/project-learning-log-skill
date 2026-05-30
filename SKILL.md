@@ -9,7 +9,7 @@ Create concise, practical Markdown notes that help the user review what they lea
 
 ## Workflow
 
-1. Confirm the target project root from the current working directory or the user's path, then resolve the in-project note directory.
+1. Confirm the target project root from the current working directory or the user's path, then resolve the note file destination.
 2. Inspect the project lightly:
    - Run `git status --short`.
    - Use `git diff --stat` and focused `git diff -- <file>` when there are local changes.
@@ -19,12 +19,12 @@ Create concise, practical Markdown notes that help the user review what they lea
    - Important decisions.
    - Mistakes or confusing points.
    - Final implementation and verification.
-4. Write one Markdown file under the resolved in-project note directory unless the user requests only a draft response.
+4. Write one Markdown file at the resolved destination unless the user requests only a draft response.
 5. Verify the file exists and briefly inspect the rendered content by reading it back.
 
 ## Default Location And Naming
 
-Use this default path inside the resolved in-project note directory unless the user specifies another destination:
+Use this default path unless the user specifies another destination:
 
 ```text
 docs/learning-notes/YYYY-MM-DD-short-topic.md
@@ -40,18 +40,18 @@ Create parent directories when needed.
 
 Never save the learning note inside the skill directory unless that directory is itself the project being documented.
 
-## Resolving The In-Project Note Directory
+## Resolving The Note Destination
 
-For ordinary repositories, the in-project note directory is the repository root:
+For ordinary repositories, save notes under the repository root:
 
 ```text
 <repo-root>/docs/learning-notes/
 ```
 
-For Xcode projects, prefer the app/source group directory that appears in Xcode's Project Navigator. If the repository root contains both `Name.xcodeproj` and a same-named directory `Name/`, save notes under that same-named directory:
+For Xcode projects, prefer a single Markdown file directly inside the app/source group directory that appears in Xcode's Project Navigator. Do not create extra `docs/` or `learning-notes/` folders. If the repository root contains both `Name.xcodeproj` and a same-named directory `Name/`, save notes directly under that same-named directory:
 
 ```text
-<repo-root>/<Name>/docs/learning-notes/
+<repo-root>/<Name>/YYYY-MM-DD-short-topic.md
 ```
 
 Example:
@@ -64,7 +64,7 @@ myCalculator/
 Save the note to:
 
 ```text
-myCalculator/docs/learning-notes/YYYY-MM-DD-short-topic.md
+myCalculator/YYYY-MM-DD-short-topic.md
 ```
 
 This keeps learning notes visible inside the app project group near files such as `ViewController.m`.
